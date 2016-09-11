@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% include meta.html %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Makoa Jacobsen</h1>
+        <h3>Makoa Jacobsen LLC</h3>
+        <p></p>
+        <p class="view"><a href="https://www.linkedin.com/in/makoa">LinkedIn (Résumé)</a></p>
+        <p class="view"><a href="https://github.com/makoa">GitHub</a></p>
+        <p class="view"><a href="https://twitter.com/makoa">Twitter</a></p>
+        <p class="view"><a href="https://www.facebook.com/makoa">Facebook</a></p>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="{{ site.baseurl }}/javascripts/scale.fix.js"></script>
+    {% include analytics.html %}
+  </body>
+</html>

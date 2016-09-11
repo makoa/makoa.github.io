@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: New TLD for Local/Private Domains
+author:
+  display_name: makoa
+  login: makoa
+  email: makoa@makoajacobsen.com
+  url: ''
+author_login: makoa
+author_email: makoa@makoajacobsen.com
+excerpt: While upgrading to Yosemite, I ran into a snag with my local server setup.
+   I run a local server for VPN and DNS.  My local domains all end with the .local
+  top-level domain (TLD; .com, .net, .org, etc. are all TLDs) as it seemed appropriate.
+   And it was working!  Until it wasn't...
+wordpress_id: 202
+wordpress_url: http://www.makoajacobsen.com/?p=202
+date: '2014-10-17 09:32:07 -0400'
+date_gmt: '2014-10-17 16:32:07 -0400'
+categories:
+- Wishlist
+tags:
+- DNS
+- mDNS
+- Bonjour
+- TLDs
+- ".local"
+comments: []
+---
+<p>While upgrading to Yosemite, I ran into a snag with my local server setup.  I run a local server for VPN and DNS.  My local domains all end with the .local top-level domain (TLD; .com, .net, .org, etc. are all TLDs) as it seemed appropriate.  And it was working!  Until it wasn't...<a id="more"></a><a id="more-202"></a></p>
+<p><strong>Domain Name Service/System (DNS)</strong></p>
+<p>DNS has two purposes in life:</p>
+<ol>
+<li>Resolve URIs to IP addresses.</li>
+<li>Direct email to the designated mail servers.</li>
+</ol>
+<p>That's it!  (Although we could argue more but let's keep it simple.)  Seems simple enough?  Configuration should be a breeze?  Ha!  Ask any system administrator.  They will tell you DNS can be the bane of one's existence if not configured correctly.</p>
+<p><strong>Why DNS?</strong></p>
+<p>Without DNS, you would be remembering IP addresses (and it would suck to remember IPv6 addresses).  For example, in visiting this website, you contacted 192.241.217.26.  Don't believe me?  Try this: <a href="http://192.241.217.26">http://192.241.217.26</a>.  Looks the same?  So instead of remembering 192.241.217.26 you remember makoajacobsen.com.  Beautiful!</p>
+<p><strong>The DNS Landscape</strong></p>
+<p>DNS is hierarchical, meaning there is an authority to keeps track of the official naming.  One can also maintain their own DNS (like I do) and then defer to the "real" DNS servers for URIs the local DNS server does not respond.  You are probably getting your DNS from your local ISP unless you specifically told your computer to use a different DNS server (perhaps Google's).</p>
+<p><strong>Reserved TLDs</strong></p>
+<p>The IETF has created a specification that notes <a href="https://tools.ietf.org/html/rfc2606">reserved TLDs</a>, meaning there will never be public, purchasable domains.  This prevents a custom-DNS name from conflicting with an actual DNS name or one that could appear in the future.</p>
+<p><strong>The Problem</strong></p>
+<p>I was using .local as my TLD for custom-domains.  Apple, among others, uses it for mDNS (Bonjour) and self-discovery, which I think is where the problem lies.  No big deal.  Just change the TLD.  Except modern browsers combine the search and address fields.  The browser has no idea .whatever is your TLD and thinks server.whatever is your search query instead of an URI that needs resolving.</p>
+<p><strong>The Solution</strong></p>
+<p>IETF, give us a reserved TLD that we can use for local DNS!  Thanks.</p>

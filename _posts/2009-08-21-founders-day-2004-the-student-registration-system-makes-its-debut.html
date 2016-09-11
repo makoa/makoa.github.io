@@ -1,0 +1,60 @@
+---
+layout: post
+status: publish
+published: true
+title: Founder's Day 2004 - The Student Registration System Makes Its Debut
+author:
+  display_name: makoa
+  login: makoa
+  email: makoa@makoajacobsen.com
+  url: ''
+author_login: makoa
+author_email: makoa@makoajacobsen.com
+wordpress_id: 53
+wordpress_url: http://makoamethod.wordpress.com/?p=53
+date: '2009-08-21 00:00:10 -0400'
+date_gmt: '2009-08-21 10:00:10 -0400'
+categories:
+- KS Connect
+tags: []
+comments:
+- id: 2
+  author: Mrs. B
+  author_email: katherine.baldwin@gmail.com
+  author_url: ''
+  date: '2009-08-22 17:04:40 -0400'
+  date_gmt: '2009-08-23 03:04:40 -0400'
+  content: |-
+    Actually, Ms. C only teaches three periods. The rest teach four.
+
+     I am enjoying reading this history!
+- id: 3
+  author: Makoa
+  author_email: makoaj@gmail.com
+  author_url: ''
+  date: '2009-08-22 20:41:29 -0400'
+  date_gmt: '2009-08-23 06:41:29 -0400'
+  content: Oops.  You're right.  Fixed it.
+- id: 6
+  author: Blaine Fergerstrom
+  author_email: zztype@gmail.com
+  author_url: ''
+  date: '2014-09-07 23:08:00 -0400'
+  date_gmt: '2014-09-08 06:08:00 -0400'
+  content: You forgot to mention the part about Hawai'i Pacific University asking
+    about the crazy kid presenting this amazing system and would he be interested
+    in a scholarship? What scholarship? The President's Scholarship. Oh!
+---
+<p>I remember that morning, December 17, 2004, in Mrs. Kimura's office.  Dressed in dress whites getting ready for my last Founder's Day (Dec. 19 was on a Sunday) as a student.  I was explaining how we should take the Course Catalog (we were getting for registration in the spring) online so that it's searchable (not just in a PDF).  Her response to me was, "Why don't we just do registration online?"  "Wait, what?" "Have students choose their courses online."  And that was it, the Student Registration System was born.  The system that precedes KS Connect.</p>
+<p>December 17, 2004 - the idea was conceived.<br />
+December 18, 2004 - the building began.</p>
+<p>The system had to be built by the time Christmas Break ended (2 weeks later).  It had to be ready to be presented and demoed.  Then it had to be rolled out with students and teachers.  The turn around time was very short.  Systems that take a whole year to build had to be done in 2-3 weeks.  Registration began at the beginning of February.  Teachers had to have their recommendations inputted into the system.</p>
+<p>Well, the Student Registration System was built.  It was hosted on the Education Web Server (the same one that has all of the various domains on it - kapalama.ksbe.edu, maui.ksbe.edu, hawaii.ksbe.edu, etc.).  The server was about to work the hardest it had ever worked.</p>
+<p>Mrs. Kimura and I also presented the system to the underclassmen in Large Group Guidance in the auditorium.  She talked, I controlled the laptop.  We demoed exactly what they had to do.  It was simple.  It was very awkward to be in there.  I was still a student.  It just felt...weird...a weirdness that would bother me for many years after.</p>
+<p>And so began registration.  Three grade levels, which was around 1350 students, would be doing their registration in the Student Registration System.  And boy did they bring the system to its knees.  I remember Sandy Mauhili walking to the boys rehearsal for Song Contest in the Choral Room looking for me.  She pointed to me and with her finger motioned the signal to follow her.  See, while 10th and 12th grade (my grade) were rehearsing, 9th and 11th grade were registering...well...that's what they were supposed to be doing.  The Education Web Server could not handle.  Blaine was freaking out.  The processor was topped off and would not process the requests.  Now, the thought process of both Blaine and me: 1) this is cool...the server is actually not responding...never thought I'd see the day we'd have this problem, but then reality sets in for 2) now how do we fix this...</p>
+<p>I never had the problem of optimizing my code.  There just wasn't enough traffic driven to the sites I had built to even think of this as a problem.  Well, as it turns out, the only real solution I remember was optimizing the SQL queries.  I wrote the queries as SELECT * FROM table1, table2, table3, which means all of the columns from all three tables had to load into memory.  BIG MISTAKE!  Do not SELECT * anything if it's not some sort of backend site.  Once I changed the * to the fields I only needed, performance improved dramatically.  It was still slow, but at least the server was processing requests.</p>
+<p>We eventually got through registration.  The last thing to do was to have bubble in their requests from the Student Registration System.  [Huh?  So you have them register online just to have them bubble in their stuff.  They'll bubble in whatever they want.]  Well, it turns out the bosses of both Blaine and the guy in charge of the student records system had heard about this.  There was a meeting setup to discuss how to move the data.  After that meeting, I programmed a script to extract the data into a format that could be imported into the student records system.  Emailed the file to the guy and whola, there were all of the requests for each student.  No scanning of bubble sheets.  No mis-reading of course requests.  Just a clean transfer of data.  Turns out the counselors were not happy that we did this because they had their students bubble in something different than what was in the Student Registration System.  Oh, well!</p>
+<p>The only classes that used this system were the Classes of 2006, 2007, and 2008 from Kapalama.  No one else knows anything about the Student Registration System, not even my classmates.  It was a success.  I dropped out of AP Psychology the 2nd semester of my senior year to do this (day we came back from Christmas break we made the schedule change).  I think Kauka would understand that it was one of the smartest things I did.</p>
+<p>Now, I should probably mention that there is one more person in this mix - the one who actually does the scheduling.  Ms. Cyriacks was my Pre-Calculus teacher junior year (I was in the one pre-calc section she taught, when she still taught it).  Ever wondered why she only taught (well, still does) three periods?  The other period was dedicated to student records or in this case, registration and scheduling.  Because I had her and spent so much time with her (and Mrs. Baldwin) in the mornings, I don't think this would have happened without the student records system deciding I should be in her Pre-Calculus class.</p>
+<p>It's amazing what happens when the people with whom you work are able to control what occurs.  Mrs. Kimura's job as Assistant Principal was scheduling, which including registration.  Any decisions around it were her decisions, including doing it online.  The only way to pull this off is when you have the administrative/political piece and the technical piece in place.  Recall, I still had full access to the Education Web Server to be able to execute something like this.  A system was built in 2 weeks, deployed, and used for two months.  Compare that to the Bulletin System, developed over a summer, and was deployed while registration was taking place.</p>
+<p>Both systems were entered into HiTechQuest 2005.  I went solo this time entering the Bulletin System in "Using Technology to Communicate - Web site" and the Student Registration System in "Using Technology to Problem-Solve."  The setup was not like last time.  Judges had a table to sit at with the presenter presenting the problem and the solution.  I had to present first for "Using Technology to Problem-Solve."  Presentation was going well until the laptop died because I did not plug it in.  Oops!  Interrupted my presentation to plug the laptop back in and we were up and running.  Total of 10 seconds interrupted.  Did not affect the evaluation because the system took first place.  The Bulletin System took third.</p>

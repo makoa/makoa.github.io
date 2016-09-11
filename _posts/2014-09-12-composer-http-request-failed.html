@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Composer HTTP Request Failed
+author:
+  display_name: makoa
+  login: makoa
+  email: makoa@makoajacobsen.com
+  url: ''
+author_login: makoa
+author_email: makoa@makoajacobsen.com
+excerpt: "I ran the <code>update</code> command on Composer and received the following
+  error:\r\n\r\n<code>[Composer\\Downloader\\TransportException]\r\nThe \"http://packagist.org/p/symfony/class-loader$78539d95ddac0cc02514ed9cdf1515023dcd289b4f7e03ed948e868a1b02acf2.json\"
+  file could not be downloaded: failed to open stream: HTTP request failed!\r\n</code>"
+wordpress_id: 197
+wordpress_url: http://www.makoajacobsen.com/?p=197
+date: '2014-09-12 16:12:30 -0400'
+date_gmt: '2014-09-12 23:12:30 -0400'
+categories:
+- PHP
+tags:
+- PHP
+- Composer
+- http
+- https
+comments: []
+---
+<p>I ran the <code>update</code> command on Composer and received the following error:</p>
+<p><code>[Composer\Downloader\TransportException]<br />
+The "http://packagist.org/p/symfony/class-loader$78539d95ddac0cc02514ed9cdf1515023dcd289b4f7e03ed948e868a1b02acf2.json" file could not be downloaded: failed to open stream: HTTP request failed!<br />
+</code><a id="more"></a><a id="more-197"></a></p>
+<p>Seems odd considering I was able to install Composer using <code>php cli</code>. I believe my Apache configuration, which forces all traffic over https, is to blame. I found the following solution in the GitHub forums.</p>
+<p>Modify your <code>composer.json</code> file to include the following:</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="js">"repositories": [
+    {
+        "packagist": false
+    },
+    {
+        "type": "composer",
+        "url": "https://packagist.org/"
+    }
+],</pre>
+<p>Then run the <code>update</code> command.  This tells Composer the repository is at <code>https://packagist.org</code>, instead of the default http variation.</p>
+<p>Credit: https://github.com/composer/composer/issues/1992 (specifically https://github.com/cs278)</p>

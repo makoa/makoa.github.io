@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Access to Symfony Kernel For Integrating Old Files
+author:
+  display_name: makoa
+  login: makoa
+  email: makoa@makoajacobsen.com
+  url: ''
+author_login: makoa
+author_email: makoa@makoajacobsen.com
+excerpt: "I found this little tidbit that's worth sharing.\r\n\r\nIf you are integrating legacy code
+  that doesn't follow the Symfony style, especially for dependency injection, you
+  may find that you need access to the container. Perhaps you need something from
+  the session object or the current request."
+wordpress_id: 140
+wordpress_url: http://www.makoajacobsen.com/?p=140
+date: '2014-08-24 09:16:55 -0400'
+date_gmt: '2014-08-24 16:16:55 -0400'
+categories:
+- Symfony
+tags:
+- Symfony
+- Legacy Code
+- Container
+comments: []
+---
+<p>I found this little tidbit that's worth sharing.</p>
+<p>If you are integrating legacy code that doesn't follow the Symfony style, especially for dependency injection, you may find that you need access to the container. Perhaps you need something from the session object or the current request.<a id="more"></a><a id="more-140"></a></p>
+<p>When Symfony starts, it creates a global variable called <code>kernel</code>.  Take hold of that variable and you will have access to the Symfony kernel, then call <code>getContainer()</code>.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="php">$container = $GLOBALS['kernel']-&gt;getContainer();</pre>
+<p>Now use the container to get the session object.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="php">$session = $container-&gt;get('session');</pre>
+<p>I realize this breaks all of the OOP benefits that Symfony offers but offers a way to get data in the container to legacy code easily.</p>

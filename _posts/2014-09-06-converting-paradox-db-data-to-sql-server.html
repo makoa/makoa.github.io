@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Converting Paradox DB Data to SQL Server
+author:
+  display_name: makoa
+  login: makoa
+  email: makoa@makoajacobsen.com
+  url: ''
+author_login: makoa
+author_email: makoa@makoajacobsen.com
+excerpt: At Oregon College of Art and Craft, they used a SIS based on Paradox DB.
+   Getting the data out of Paradox DB into something more current and workable was
+  challenging.  After scrounging the Internet for answers, here were my steps to convert
+  the data with things I've learned.  Hopefully it can help you.
+wordpress_id: 157
+wordpress_url: http://www.makoajacobsen.com/?p=157
+date: '2014-09-06 17:19:19 -0400'
+date_gmt: '2014-09-07 00:19:19 -0400'
+categories:
+- Database
+tags:
+- MSSQL
+- Paradox DB
+- Conversion
+- PHP
+comments: []
+---
+<p>At Oregon College of Art and Craft, they used a SIS based on Paradox DB.  Getting the data out of Paradox DB into something more current and workable was challenging.  After scrounging the Internet for answers, here were my steps to convert the data with things I've learned.  Hopefully it can help you.<a id="more"></a><a id="more-157"></a></p>
+<p><span style="text-decoration: underline;">Why SQL Server?</span></p>
+<p>It's easier to get the data out of the source system into a Microsoft-based solution.  Just use SQL Server for staging.  Write scripts against the converted data to convert/transform the data into whatever new structure you need.  For my current project, I used PHP to query out of SQL Server, transform, and save to MySQL.</p>
+<p><span style="text-decoration: underline;">Steps</span></p>
+<p>Note: Must have installed Paradox Borland Database Engine (BDE) Client installed.  The Microsoft Paradox DB driver uses it. Good chance that if the application is storing data in the Paradox DB that the software includes the Paradox BDE client.</p>
+<p>1.) Create an ODBC data source using the Microsoft Paradox DB driver.  May need to remove the value in the User Name field to get it to go.</p>
+<p><a href="http://www.makoajacobsen.com/wp-content/uploads/2014/09/Paradox-Username-config.png"><img class="alignnone size-medium wp-image-158" src="http://www.makoajacobsen.com/wp-content/uploads/2014/09/Paradox-Username-config-300x168.png" alt="Paradox Username config" width="300" height="168" /></a></p>
+<p>2.) I use SQL Server Management Server to get the Import/Export Wizard up (Right-click on the database you want to import into and choose Import Data).</p>
+<p>3.) Use the .NET Framework Data Provider for Odbc and enter the Dsn as the name you setup in Step 1.  The destination database will be SQL Server.</p>
+<p>4.) You will get a list of files to import based on the DB files in the ODBC data source's folder.  Make sure you edit the mappings for each file.</p>
+<ul>
+<li>Dates don't import very well.  Instead use a <code>varchar</code> field.  Then use your conversion technology, such as PHP's <code>strtotime</code> function, to parse the date string back into a date.</li>
+<li>Text fields are mapped to <code>ntext</code> <code>(</code>at least that's what happened to me).  If you find that on importing you only get the first character of the string, change the field type to the non-unicode version, <code>text</code> in this case.</li>
+</ul>
+<p>May the importing gods be with you.</p>
