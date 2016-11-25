@@ -41,7 +41,7 @@ google_analytics: UA-87986778-1
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://makoa.github.io
+url: http://www.makoajacobsen.com
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -53,7 +53,7 @@ baseurl: ""
 # !! You don't need to change any of the configuration flags below !!
 #
 
-permalink: /:title/
+permalink: pretty  # /:year/:month/:day/:title/
 
 # The release of Jekyll Now that you're using
 version: v1.2.0
