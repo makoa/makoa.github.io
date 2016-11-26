@@ -27,7 +27,7 @@ tags:
 comments: []
 ---
 <p>I found this little tidbit that's worth sharing.</p>
-<p>If you are integrating legacy code that doesn't follow the Symfony style, especially for dependency injection, you may find that you need access to the container. Perhaps you need something from the session object or the current request.<a id="more"></a><a id="more-140"></a></p>
+<p>If you are integrating legacy code that doesn't follow the Symfony style, especially for dependency injection, you may find that you need access to the container. Perhaps you need something from the session object or the current request.</p>
 <p>When Symfony starts, it creates a global variable called <code>kernel</code>.  Take hold of that variable and you will have access to the Symfony kernel, then call <code>getContainer()</code>.</p>
 <pre class="EnlighterJSRAW" data-enlighter-language="php">$container = $GLOBALS['kernel']-&gt;getContainer();</pre>
 <p>Now use the container to get the session object.</p>

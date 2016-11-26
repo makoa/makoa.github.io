@@ -29,7 +29,7 @@ comments: []
 <p>I ran the <code>update</code> command on Composer and received the following error:</p>
 <p><code>[Composer\Downloader\TransportException]<br />
 The "http://packagist.org/p/symfony/class-loader$78539d95ddac0cc02514ed9cdf1515023dcd289b4f7e03ed948e868a1b02acf2.json" file could not be downloaded: failed to open stream: HTTP request failed!<br />
-</code><a id="more"></a><a id="more-197"></a></p>
+</code></p>
 <p>Seems odd considering I was able to install Composer using <code>php cli</code>. I believe my Apache configuration, which forces all traffic over https, is to blame. I found the following solution in the GitHub forums.</p>
 <p>Modify your <code>composer.json</code> file to include the following:</p>
 <pre class="EnlighterJSRAW" data-enlighter-language="js">"repositories": [
