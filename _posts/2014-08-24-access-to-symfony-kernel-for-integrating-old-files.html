@@ -30,10 +30,10 @@ comments: []
 <p>If you are integrating legacy code that doesn't follow the Symfony style, especially for dependency injection, you may find that you need access to the container. Perhaps you need something from the session object or the current request.</p>
 <p>When Symfony starts, it creates a global variable called <code>kernel</code>.  Take hold of that variable and you will have access to the Symfony kernel, then call <code>getContainer()</code>.</p>
 {% highlight php %}
-$container = $GLOBALS['kernel']-&gt;getContainer();
+$container = $GLOBALS['kernel']->getContainer();
 {% endhighlight %}
 <p>Now use the container to get the session object.</p>
 {% highlight php %}
-$session = $container-&gt;get('session');
+$session = $container->get('session');
 {% endhighlight %}
 <p>I realize this breaks all of the OOP benefits that Symfony offers but offers a way to get data in the container to legacy code easily.</p>
