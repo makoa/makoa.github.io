@@ -33,7 +33,7 @@ comments: []
 <p><span style="text-decoration: underline;">Steps</span></p>
 <p>Note: Must have installed Paradox Borland Database Engine (BDE) Client installed.  The Microsoft Paradox DB driver uses it. Good chance that if the application is storing data in the Paradox DB that the software includes the Paradox BDE client.</p>
 <p>1.) Create an ODBC data source using the Microsoft Paradox DB driver.  May need to remove the value in the User Name field to get it to go.</p>
-<p><a href="{{ site.url }}/assets/2014-09-06-Paradox-Username-config"><img src="{{ site.url }}/assets/2014-09-06-Paradox-Username-config" alt="Paradox Username config" width="300" height="168" /></a></p>
+<p><a href="{{ site.url }}/assets/2014-09-06-Paradox-Username-config.png"><img src="{{ site.url }}/assets/2014-09-06-Paradox-Username-config.png" alt="Paradox Username config" width="300" height="168" /></a></p>
 <p>2.) I use SQL Server Management Server to get the Import/Export Wizard up (Right-click on the database you want to import into and choose Import Data).</p>
 <p>3.) Use the .NET Framework Data Provider for Odbc and enter the Dsn as the name you setup in Step 1.  The destination database will be SQL Server.</p>
 <p>4.) You will get a list of files to import based on the DB files in the ODBC data source's folder.  Make sure you edit the mappings for each file.</p>
